@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: go-distributed-system
+spec:
+  serviceName: "go-distributed-system"
+  replicas: 3
+  selector:
+    matchLabels:
+      app: go-distributed-system
+  template:
+    metadata:
+      labels:
+        app: go-distributed-system
+    spec:
+      containers:
+      - name: go-distributed-system
+        image: go-distributed-system:latest
+        env:
+        - name: NODE_ID
+          valueFrom:
+            fieldRef:
+              fieldPath: metadata.name
+        - name: CLUSTER_SIZE
+          valueFrom:
+            configMapKeyRef:
+              name: go-distributed-system-config
+              key: cluster-size
