@@ -10,6 +10,7 @@ A lightweight distributed system demo implemented in Go. Each node runs as a con
 - Logs show leader election events and message propagation.
 
 ## 📂 Project Structure
+```aiexclude
 go-distributed-system/
 │── cmd/
 │   └── node/
@@ -29,3 +30,5 @@ go-distributed-system/
 │   └── configmap.yaml      # Config for cluster size / settings
 │
 │── README.md
+```
+

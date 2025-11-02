@@ -15,6 +15,18 @@ const (
 	Leader
 )
 
+type Election interface {
+	StartElection()
+}
+
+type ElectionTimeout interface {
+	ResetTimeout()
+}
+
+type Runner interface {
+	run()
+}
+
 // Node represents a node in the cluster.
 type Node struct {
 	ID      int
